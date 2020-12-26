@@ -54,6 +54,17 @@ class VisitLog
     }
 
     /**
+     * Returns all logs where route.
+     */
+    public function whereRoute($route = null)
+    {
+        if(route) {
+            return VisitLogModel::where('route.name', $route)->get();
+        }
+        return VisitLogModel::all();
+    }
+
+    /**
      * Get's IP address of visitor.
      *
      * @return mixed

@@ -10,6 +10,7 @@ class VisitLog extends Model
 
     protected $fillable = [
         'ip',
+        'route',
         'browser',
         'os',
         'user_id',
