@@ -58,13 +58,8 @@ class VisitLog
      */
     public function whereRoute($routeName = null)
     {
-<<<<<<< HEAD
         if ($routeName) {
             return VisitLogModel::where('route', 'like', "%\"{$routeName}\"%")->get();
-=======
-        if (route) {
-            return VisitLogModel::where('route.name', $route)->get();
->>>>>>> ddf53c9ffdf0be65e18e025fb7ad290d7028d7a4
         }
         return VisitLogModel::all();
     }
