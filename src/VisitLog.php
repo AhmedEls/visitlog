@@ -42,16 +42,6 @@ class VisitLog
             }
         }
 
-        if (config('visitlog.log_pages')) {
-            $routeData = [
-                'route' => Route::current()
-            ];
-            if($routeData) {
-                array_merge($routeData, $data);
-            }
-
-        }
-
         return VisitLogModel::create($data);
     }
 
@@ -117,8 +107,18 @@ class VisitLog
         $data = [
             'ip' => $ip,
             'browser' => $this->getBrowserInfo(),
-            'os' => $this->browser->getPlatform() ?: 'Unknown',
+            'os' => $this->browser->getPlatform() ?: 'Unknown'
         ];
+
+        if (config('visitlog.log_pages')) {
+            $routeData = [
+                'name' => Route::currentRouteName(),
+                'uri' => Route::getCurrentRoute()->uri,
+                'action' => Route::currentRouteAction()
+            ];
+
+            $data = array_merge($data, ['route' => $routeData]);
+        };
 
         // info from http://freegeoip.net
         if (config('visitlog.iptolocation')) {
