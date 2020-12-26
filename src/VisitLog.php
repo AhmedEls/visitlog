@@ -33,7 +33,7 @@ class VisitLog
         $data = $this->getData();
 
         if (config('visitlog.unique')) {
-            $model = VisitLogModel::where('ip', $this->getUserIP())->first();
+            $model = VisitLogModel::where('ip', $this->getUserIP())->where('route', $this->getRouteData())->first();
 
             if ($model) {
                 // update record of same IP eg new visit times, etc
@@ -56,10 +56,10 @@ class VisitLog
     /**
      * Returns all logs where route.
      */
-    public function whereRoute($route = null)
+    public function whereRoute($routeName = null)
     {
-        if(route) {
-            return VisitLogModel::where('route.name', $route)->get();
+        if ($routeName) {
+            return VisitLogModel::where('route', 'like', "%\"{$routeName}\"%")->get();
         }
         return VisitLogModel::all();
     }
@@ -84,6 +84,22 @@ class VisitLog
         }
 
         return $ip ?: '0.0.0.0';
+    }
+
+    /**
+     * Get's Current Route of visitor.
+     *
+     * @return array
+     */
+    protected function getRouteData()
+    {
+        $routeData = [
+            'name' => Route::currentRouteName(),
+            'params' => Route::getCurrentRoute()->parameters,
+            'action' => Route::currentRouteAction()
+        ];
+
+        return json_encode($routeData);
     }
 
     /**
@@ -122,13 +138,7 @@ class VisitLog
         ];
 
         if (config('visitlog.log_pages')) {
-            $routeData = [
-                'name' => Route::currentRouteName(),
-                'uri' => Route::getCurrentRoute()->uri,
-                'action' => Route::currentRouteAction()
-            ];
-
-            $data = array_merge($data, ['route' => $routeData]);
+            $data = array_merge($data, ['route' => $this->getRouteData()]);
         };
 
         // info from http://freegeoip.net
