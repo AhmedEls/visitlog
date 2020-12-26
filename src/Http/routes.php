@@ -3,7 +3,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(
     [
-        'namespace' => 'Sarfraznawaz2005\VisitLog\Http\Controllers',
+        'namespace' => 'AhmedEls\VisitLog\Http\Controllers',
         'prefix' => config('visitlog.route', 'visitlog'),
         'middleware' => config('visitlog.middleware')
     ],

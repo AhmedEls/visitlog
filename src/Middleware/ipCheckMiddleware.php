@@ -1,11 +1,11 @@
 <?php
 
-namespace Sarfraznawaz2005\VisitLog\Middleware;
+namespace AhmedEls\VisitLog\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Sarfraznawaz2005\VisitLog\Models\VisitLog as VisitModel;
-use Sarfraznawaz2005\VisitLog\VisitLog;
+use AhmedEls\VisitLog\Models\VisitLog as VisitModel;
+use AhmedEls\VisitLog\VisitLog;
 
 class ipCheckMiddleware extends VisitLog
 {

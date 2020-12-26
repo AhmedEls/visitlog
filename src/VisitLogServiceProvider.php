@@ -1,8 +1,8 @@
 <?php
-namespace Sarfraznawaz2005\VisitLog;
+namespace AhmedEls\VisitLog;
 
 use Illuminate\Support\ServiceProvider;
-use Sarfraznawaz2005\VisitLog\Middleware\ipCheckMiddleware;
+use AhmedEls\VisitLog\Middleware\ipCheckMiddleware;
 
 class VisitLogServiceProvider extends ServiceProvider
 {

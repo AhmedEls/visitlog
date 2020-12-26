@@ -1,10 +1,10 @@
 <?php
 
-namespace Sarfraznawaz2005\VisitLog\Http\Controllers;
+namespace AhmedEls\VisitLog\Http\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Redirect;
-use Sarfraznawaz2005\VisitLog\Models\VisitLog as VisitLogModel;
+use AhmedEls\VisitLog\Models\VisitLog as VisitLogModel;
 
 class VisitLogController extends BaseController
 {

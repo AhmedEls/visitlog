@@ -1,6 +1,6 @@
 <?php
 
-namespace Sarfraznawaz2005\VisitLog;
+namespace AhmedEls\VisitLog;
 
 class Browser
 {

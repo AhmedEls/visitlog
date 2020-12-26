@@ -1,5 +1,5 @@
 <?php
-namespace Sarfraznawaz2005\VisitLog\Facades;
+namespace AhmedEls\VisitLog\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

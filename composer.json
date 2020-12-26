@@ -1,5 +1,5 @@
 {
-	"name": "sarfraznawaz2005/visitlog",
+	"name": "ahmedels/visitlog",
 	"keywords": [
 		"laravel",
 		"log",
@@ -21,17 +21,17 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"Sarfraznawaz2005\\VisitLog\\": "src/"
+			"AhmedEls\\VisitLog\\": "src/"
 		}
 	},
 	"minimum-stability": "stable",
 	"extra": {
 		"laravel": {
 			"providers": [
-				"Sarfraznawaz2005\\VisitLog\\VisitLogServiceProvider"
+				"AhmedEls\\VisitLog\\VisitLogServiceProvider"
 			],
 			"aliases": {
-				"VisitLog": "Sarfraznawaz2005\\VisitLog\\Facades\\VisitLog"
+				"VisitLog": "AhmedEls\\VisitLog\\Facades\\VisitLog"
 			}
 		}
 	}

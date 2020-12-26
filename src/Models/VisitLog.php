@@ -1,6 +1,6 @@
 <?php
 
-namespace Sarfraznawaz2005\VisitLog\Models;
+namespace AhmedEls\VisitLog\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

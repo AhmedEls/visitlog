@@ -1,10 +1,11 @@
 <?php
 
-namespace Sarfraznawaz2005\VisitLog;
+namespace AhmedEls\VisitLog;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
-use Sarfraznawaz2005\VisitLog\Models\VisitLog as VisitLogModel;
+use Illuminate\Support\Facades\Route;
+use AhmedEls\VisitLog\Models\VisitLog as VisitLogModel;
 
 class VisitLog
 {
@@ -39,6 +40,10 @@ class VisitLog
                 $model->touch();
                 return $model->update($data);
             }
+        }
+
+        if (config('visitlog.log_pages')) {
+            $data->route = Route::current();
         }
 
         return VisitLogModel::create($data);
@@ -135,7 +140,7 @@ class VisitLog
         if ($userData) {
             $data = array_merge($data, $userData);
         }
-                
+
         return $data;
     }
 
