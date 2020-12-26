@@ -43,7 +43,13 @@ class VisitLog
         }
 
         if (config('visitlog.log_pages')) {
-            $data->route = Route::current();
+            $routeData = [
+                'route' => Route::current()
+            ];
+            if($routeData) {
+                array_merge($routeData, $data);
+            }
+
         }
 
         return VisitLogModel::create($data);
