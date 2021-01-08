@@ -2,6 +2,7 @@
 
 namespace AhmedEls\VisitLog;
 
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Route;
@@ -33,7 +34,7 @@ class VisitLog
         $data = $this->getData();
 
         if (config('visitlog.unique')) {
-            $model = VisitLogModel::where('ip', $this->getUserIP())->where('route', $this->getRouteData())->first();
+            $model = VisitLogModel::where('ip', $this->getUserIP())->where('route', $this->getRouteData())->whereDate('created_at', '=', Carbon::today()->toDateString())->first();
 
             if ($model) {
                 // update record of same IP eg new visit times, etc
